@@ -1,7 +1,7 @@
-# Project Name - _Project Author (Change Me)_
+# Flipkart Automation - Poonam Knase
 
 ## Project Name and Description:
-A concise yet descriptive title and an overview of the project’s purpose.
+Automate various searches for items with conditions and get different result in console
 
 ## Installation Instructions:
 Clear steps to set up and run the project locally.
@@ -16,7 +16,7 @@ Provide sample code or usage scenarios to showcase how the project works.
 > Example:
 ```
 # to run the project
-./gradlew run
+./gradlew test
 ```
 
 ## Important Links:

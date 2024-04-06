@@ -6,13 +6,20 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterSuite;
+//import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+//import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-
 public class TestCases {
+
     ChromeDriver driver;
-    public TestCases()
+    
+    @BeforeSuite
+    public void init()
     {
         System.out.println("Constructor: TestCases");
         WebDriverManager.chromedriver().timeout(30).setup();
@@ -20,6 +27,7 @@ public class TestCases {
         driver.manage().window().maximize();
     }
 
+    @AfterSuite
     public void endTest()
     {
         System.out.println("End Test: TestCases");
@@ -28,7 +36,7 @@ public class TestCases {
 
     }
 
-    
+    @Test
     public  void testCase01() throws InterruptedException{
         System.out.println("Start Test case: testCase01");
         driver.get("http://www.flipkart.com");
@@ -47,7 +55,7 @@ public class TestCases {
         WebElement popularityButton = driver.findElement(By.xpath("//div[text()='Popularity']"));
         popularityButton.click();
 
-        Thread.sleep(9000);
+        Thread.sleep(5000);
 
         List<WebElement> items = driver.findElements(By.xpath("//div[@data-id]"));
         int size = items.size();
@@ -69,6 +77,7 @@ public class TestCases {
         System.out.println("end Test case: testCase01");
     }
 
+    @Test
     public  void testCase02() throws InterruptedException{
 
         System.out.println("Start Test case: testCase02");
@@ -102,7 +111,7 @@ public class TestCases {
             String per = dis.getText();
             per = per.substring(0, per.indexOf('%'));
             double percent = Double.parseDouble(per);
-            System.out.println(per);
+            //System.out.println(per);
             if(percent > 10)
             {
                 System.out.println(title);
@@ -110,17 +119,14 @@ public class TestCases {
             }
 
         }
-        System.out.println("end Test case: testCase02");
-
-        
-
-        
+    
 
     }
 
+    @Test
     public  void testCase03() throws InterruptedException{
 
-        System.out.println("Start Test case: testCase03");
+        System.out.println("Start Test case: testCase02");
         driver.get("http://www.flipkart.com"); 
 
         // WebElement closeLoginPopup = driver.findElement(By.xpath("//span[@class='_30XB9F']"));
@@ -179,5 +185,5 @@ public class TestCases {
     }
 
 
-
 }
+
